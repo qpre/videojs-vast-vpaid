@@ -8,7 +8,7 @@ if [ "$TRAVIS" = "true" ]; then
       git config --global user.email "$USER_MAIL"
     fi
 
-    if [[ ( "$TRAVIS_BRANCH" = "patch" ) || ( "$TRAVIS_BRANCH" = "minor" ) || ( "$TRAVIS_BRANCH" = "major" ) ]]; then
+    if [ \( "$TRAVIS_BRANCH" = "patch" \) -o \( "$TRAVIS_BRANCH" = "minor" \) -o \( "$TRAVIS_BRANCH" = "major" \) ]; then
         gulp build --env production
         original_dir=`pwd`
         rm -rf /var/tmp/release
